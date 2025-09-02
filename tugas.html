@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Data Pribadi</title>
+</head>
+<body>
+    <h1 style="text-transform: uppercase; text-align:center;">
+      Formulir Data Pribadi
+    </h1>
+    <form id="FormSaya" style="text-align: center;">
+      <label>Nama lengkap:</label>
+      <input type="text" id="nama" required><br><br>
+
+      <label>Usia:</label>
+      <input type="number" id="usia" required><br><br>
+
+      <label>Makanan Favorit:</label>
+      <input type="text" id="makanan" required><br><br>
+
+      <label>Minuman Favorit:</label>
+      <input type="text" id="minuman" required><br><br>
+  
+     <label>Hobi</label>
+     <input type ="text" id="Hobi"" required><br><br>
+      <label>Warna Kesukaan:</label>
+      <input type="text" id="warna" required><br><br>
+
+      <button type="submit">Kirim</button>
+    </form>
+
+    <!-- Hasil Output -->
+    <div id="gatau" style="display:none; text-align:center; margin-top:20px;"></div>
+
+    <!-- Script JavaScript -->
+    <script>
+      const form = document.getElementById("FormSaya"); 
+      const hasil = document.getElementById("gatau"); 
+
+      form.addEventListener("submit", function(dahtau) {
+        dahtau.preventDefault(); 
+
+        // Ambil nilai dari semua input
+        const nama = document.getElementById("nama").value;
+        const usia = document.getElementById("usia").value;
+        const makanan = document.getElementById("makanan").value;
+        const minuman = document.getElementById("minuman").value;
+       const Hobi = document.getElementById("Hobi").value;
+        const warna = document.getElementById("warna").value;
+
+        // Tampilkan data dalam elemen hasil
+        hasil.style.display = "block"; 
+        hasil.innerHTML = `
+          <h2><center>DATA PRIBADI</center></h2>
+          <p><b>Nama lengkap :</b> ${nama}</p>
+          <p><b>Usia :</b> ${usia}</p>
+          <p><b>Makanan Favorit :</b> ${makanan}</p>
+          <p><b>Minuman Favorit :</b> ${minuman}</p>
+          <p><b>Hobi :</b>
+          ${Hobi}</p>
+          <p><b>Warna Kesukaan :</b> ${warna}</p>
+        `;
+      });
+    </script>
+</body>
+</html>
