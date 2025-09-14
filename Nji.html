@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulir Pendaftaran</title>
+</head>
+<body>
+  <h1 style="text-transform: uppercase; text-align:center;">
+    Formulir Pendaftaran
+  </h1>
+  <form id="FormSaya" style="text-align: center;">
+    Nama Lengkap: 
+    <input type="text" id="saya" placeholder="nama" required><br><br>
+    
+    Hobi: 
+    <input type="checkbox" id="hobi" name="hobi" value="olahraga">
+    <label for="hobi">Olahraga</label><br><br>
+    
+    Tanggal: 
+    <input type="date" id="tanggal" required><br><br>
+    
+    <label>Time:</label>
+    <input type="time" id="pa" required><br><br>
+    
+    No.HP: 
+    <input type="number" id="gua" placeholder="0812345" required><br><br>
+    
+    Gmail: 
+    <input type="email" id="ya" placeholder="ole@gmail.com" required><br><br>
+    
+    Password: 
+    <input type="password" id="lu" placeholder="******" required><br><br>
+    
+    <p>
+      <textarea name="alamat" id="alamat" rows="5" cols="40" placeholder="Alamat Lengkap"></textarea>
+    </p>
+    
+    <label for="jurusan">Jurusan:</label>
+    <select id="jurusan" name="jurusan">
+      <option value="">-- Pilih Jurusan --</option>
+      <option value="tkj">Teknik Komputer & Jaringan</option>
+      <option value="rpl">Rekayasa Perangkat Lunak</option>
+    </select>
+    <br><br>
+    
+    <button type="submit">Kirim</button>
+  </form>
+
+  <!-- ==================== Hasil Output ==================== -->
+  <div id="gatau" style="display:none; margin-top:20px; text-align:center;"></div>
+
+  <!-- ==================== Script JavaScript ==================== -->
+  <script>
+    const form = document.getElementById("FormSaya");
+    const hasil = document.getElementById("gatau");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const aku = document.getElementById("saya").value;
+      const tanggal = document.getElementById("tanggal").value;
+      const Time = document.getElementById("pa").value;
+      const No = document.getElementById("gua").value;
+      const hobiCheck = document.getElementById("hobi");
+      const hobi = hobiCheck.checked ? hobiCheck.value : "Tidak memilih";
+      const gmail = document.getElementById("ya").value;
+      const password = document.getElementById("lu").value;
+      const alamat = document.getElementById("alamat").value;
+      const jurusan = document.getElementById("jurusan").value || "Belum memilih";
+
+      hasil.style.display = "block";
+      hasil.innerHTML = `
+        <h2>DATA PRIBADI</h2>
+        <p><b>Nama Kamu :</b> ${aku}</p>
+        <p><b>Tanggal :</b> ${tanggal}</p>
+        <p><b>Time :</b> ${Time}</p>
+        <p><b>No :</b> ${No}</p>
+        <p><b>Hobi :</b> ${hobi}</p>
+        <p><b>Gmail:</b> ${gmail}</p>
+        <p><b>Password:</b> ${password}</p>
+        <p><b>Alamat:</b> ${alamat}</p>
+        <p><b>Jurusan:</b> ${jurusan}</p>
+      `;
+    });
+  </script>
+</body>
+</html>
